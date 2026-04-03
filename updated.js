@@ -85,7 +85,7 @@
    // WEEKLY SERVICES CHECKBOXES (Section 0)
    // ═══════════════════════════════════════════════════════════════
    function initWeeklyServices() {
-     const services = ['Sunday 8am', 'Sunday 10am', 'Wednesday Evening', 'Friday Night'];
+     const services = ['AnzaFyt', 'Best-P', 'Class Fellowship', 'Faith Foundation'];
      buildCheckboxGrid('weeklyServicesGrid', services);
    }
    
@@ -93,7 +93,7 @@
    // SERVICES CHECKBOXES (Section 1)
    // ═══════════════════════════════════════════════════════════════
    function initServices() {
-     const services = ['Main Service', 'Healing Service', 'Youth Service', 'Prayer Meeting'];
+     const services = ['Intercessory', 'Praises and Worship', 'Sermons', 'Creative Presentations'];
      buildCheckboxGrid('servicesGrid', services);
    }
    
@@ -222,8 +222,8 @@
    function initPrograms() {
      const programs = [
        'Best P', 'Anzafyt', 'Vukafyt', 'Faith Foundation',
-       'Youth Group', 'Prayer Circle', 'Bible Study', 'Mentorship',
-       'Worship Team', 'Mission Trip', 'Service Outreach', 'Growth Group'
+       'CU services', 'Brothers & Sisters talks', 'Bible Study', 'Minisry meetups',
+       'Day-time Prayers', 'Morning devotions', 'Outreach', 'Inreach Evangeism'
      ];
      const container = document.getElementById('programBoxes');
      if (!container) return;
@@ -279,10 +279,9 @@
    // ═══════════════════════════════════════════════════════════════
    function initMinistries() {
      const ministries = [
-       'Worship', 'Intercession', 'Ushering', 'Media',
-       'Outreach', 'Counseling', 'Mentoring', 'Hospitality',
-       'Logistics', 'Prayer Team', 'Teaching', 'Music',
-       'Administration', 'Other'
+       'PW & Choir', 'IT', 'Technical', 'Ushering',
+       'Missions', 'Inreach', 'Sunday School', 'Creative',
+       'Logistics', 'Catering', 'Other'
      ];
      const container = document.getElementById('ministryGrid');
      if (!container) return;
@@ -539,9 +538,8 @@
        <select class="topic-category">
          <option value="">Select Category</option>
          <option value="spirituality">Spirituality &amp; Faith</option>
-         <option value="relationships">Relationships</option>
+         <option value="relationships">Social Life</option>
          <option value="career">Career &amp; Purpose</option>
-         <option value="mental-health">Mental Health &amp; Wellness</option>
          <option value="finances">Finances &amp; Stewardship</option>
        </select>
        <input type="text" class="topic-input" placeholder="Topic name…">
