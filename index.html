@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semester Evaluation — UoEm Christian Union</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-crest">
+      <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9 12 3zm0 2.3L19.47 9 12 12.7 4.53 9 12 5.3zM7 14.12v3.4L12 20l5-2.48v-3.4L12 16.7 7 14.12z"/></svg>
+    </div>
+    <div class="nav-name">University of Embu <span>Christian Union</span></div>
+    <div class="nav-spacer"></div>
+    <div class="nav-badge" id="stepPill">Step 1 of 5</div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-bloom"></div>
+
+  <div class="hero-content">
+    <div class="hero-emblem" aria-hidden="true">
+      <div class="emblem-v"></div>
+      <div class="emblem-h"></div>
+    </div>
+    <div class="hero-eyebrow">
+      <span class="ey-dot"></span> Semester 2 &nbsp;·&nbsp; 2024 / 2025 <span class="ey-dot"></span>
+    </div>
+    <h1>How Are We<br><em>Growing Together?</em></h1>
+    <p class="hero-sub">Your honest reflection shapes the future of our community.<br>Every voice matters — this takes about 3 minutes.</p>
+
+    <div class="hero-pills">
+      <span class="hero-pill">📋 5 sections</span>
+      <span class="hero-pill">⏱ ~3 minutes</span>
+      <span class="hero-pill">🔒 Anonymous</span>
+    </div>
+
+    <div class="hero-prog">
+      <div class="prog-header">
+        <span class="prog-title">Your progress</span>
+        <span class="prog-count" id="progLabel">0 of 5 sections complete</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+    </div>
+  </div>
+
+  <!-- Step tabs -->
+  <nav class="step-strip" aria-label="Evaluation steps">
+    <button class="step-item active" data-goto="0" aria-label="Step 1: Ratings">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <span class="step-lbl">Ratings</span>
+    </button>
+    <div class="step-line"></div>
+    <button class="step-item" data-goto="1" aria-label="Step 2: Growth">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.57L5.71 21a18.45 18.45 0 001.56-2.2A9.74 9.74 0 0012 20c6 0 10-5 10-10-.01-.36-.06-.72-.13-1.07a8.93 8.93 0 01-4.87-.93z"/></svg>
+      </div>
+      <span class="step-lbl">Growth</span>
+    </button>
+    <div class="step-line"></div>
+    <button class="step-item" data-goto="2" aria-label="Step 3: Events">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      </div>
+      <span class="step-lbl">Events</span>
+    </button>
+    <div class="step-line"></div>
+    <button class="step-item" data-goto="3" aria-label="Step 4: Details">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/></svg>
+      </div>
+      <span class="step-lbl">Details</span>
+    </button>
+    <div class="step-line"></div>
+    <button class="step-item" data-goto="4" aria-label="Step 5: Feedback">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      </div>
+      <span class="step-lbl">Feedback</span>
+    </button>
+  </nav>
+</section>
+
+<!-- ══ MAIN ══ -->
+<main class="main-wrap" id="mainContent">
+
+  <!-- ▸ PANEL 0 — Overall Ratings -->
+  <div class="panel active" id="panel0">
+    <header class="panel-head">
+      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="panel-head-text">
+        <div class="panel-title">Overall Experience</div>
+        <div class="panel-sub">Rate your satisfaction across three key areas</div>
+      </div>
+      <div class="panel-num">01 <span>/ 05</span></div>
+    </header>
+
+    <div class="card">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <p class="card-hint">Tap the stars to rate each area</p>
+
+        <div class="star-row" id="srow-meetings">
+          <div class="star-meta">
+            <span class="star-name">Weekly meetings &amp; programs</span>
+            <span class="star-badge" id="sh-meetings"></span>
+          </div>
+          <div class="stars" data-star-group="meetings">
+            <button class="star" data-val="1" aria-label="1 star — Poor"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="2" aria-label="2 stars — Fair"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="3" aria-label="3 stars — Good"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="4" aria-label="4 stars — Great"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="5" aria-label="5 stars — Excellent"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+          </div>
+        </div>
+
+        <div class="star-row" id="srow-teaching">
+          <div class="star-meta">
+            <span class="star-name">Spiritual content &amp; teaching</span>
+            <span class="star-badge" id="sh-teaching"></span>
+          </div>
+          <div class="stars" data-star-group="teaching">
+            <button class="star" data-val="1" aria-label="1 star — Poor"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="2" aria-label="2 stars — Fair"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="3" aria-label="3 stars — Good"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="4" aria-label="4 stars — Great"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="5" aria-label="5 stars — Excellent"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+          </div>
+        </div>
+
+        <div class="star-row last" id="srow-fellowship">
+          <div class="star-meta">
+            <span class="star-name">Community &amp; fellowship</span>
+            <span class="star-badge" id="sh-fellowship"></span>
+          </div>
+          <div class="stars" data-star-group="fellowship">
+            <button class="star" data-val="1" aria-label="1 star — Poor"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="2" aria-label="2 stars — Fair"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="3" aria-label="3 stars — Good"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="4" aria-label="4 stars — Great"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="5" aria-label="5 stars — Excellent"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-btns first-step">
+      <button class="btn-next" onclick="goTo(1)">Continue to Growth <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button>
+    </div>
+  </div>
+
+
+  <!-- ▸ PANEL 1 — Spiritual Growth -->
+  <div class="panel" id="panel1">
+    <header class="panel-head">
+      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.57L5.71 21a18.45 18.45 0 001.56-2.2A9.74 9.74 0 0012 20c6 0 10-5 10-10-.01-.36-.06-.72-.13-1.07a8.93 8.93 0 01-4.87-.93z"/></svg></div>
+      <div class="panel-head-text">
+        <div class="panel-title">Spiritual Growth</div>
+        <div class="panel-sub">Two quick questions about your personal journey</div>
+      </div>
+      <div class="panel-num">02 <span>/ 05</span></div>
+    </header>
+
+    <div class="card">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="q-block">
+          <p class="q-label">How would you describe your spiritual growth this semester?</p>
+          <div class="mood-grid" data-mood-group="growth">
+            <button class="mood-btn" data-value="declining"><span class="m-emoji">😔</span><span class="m-name">Declining</span></button>
+            <button class="mood-btn" data-value="stagnant"><span class="m-emoji">😐</span><span class="m-name">Stagnant</span></button>
+            <button class="mood-btn" data-value="steady"><span class="m-emoji">🙂</span><span class="m-name">Steady</span></button>
+            <button class="mood-btn" data-value="growing"><span class="m-emoji">😊</span><span class="m-name">Growing</span></button>
+            <button class="mood-btn" data-value="thriving"><span class="m-emoji">🙌</span><span class="m-name">Thriving</span></button>
+          </div>
+        </div>
+        <div class="q-block q-last">
+          <p class="q-label">Do you feel included and welcomed in our community?</p>
+          <div class="mood-grid" data-mood-group="inclusion">
+            <button class="mood-btn" data-value="not-at-all"><span class="m-emoji">😞</span><span class="m-name">Not at all</span></button>
+            <button class="mood-btn" data-value="sometimes"><span class="m-emoji">🤔</span><span class="m-name">Sometimes</span></button>
+            <button class="mood-btn" data-value="mostly"><span class="m-emoji">😊</span><span class="m-name">Mostly</span></button>
+            <button class="mood-btn" data-value="always"><span class="m-emoji">💛</span><span class="m-name">Always</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-btns">
+      <button class="btn-back" onclick="goTo(0)"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg> Back</button>
+      <button class="btn-next" onclick="goTo(2)">Continue to Events <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button>
+    </div>
+  </div>
+
+
+  <!-- ▸ PANEL 2 — Events -->
+  <div class="panel" id="panel2">
+    <header class="panel-head">
+      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+      <div class="panel-head-text">
+        <div class="panel-title">Events &amp; Programs</div>
+        <div class="panel-sub">Tell us what impacted you most this semester</div>
+      </div>
+      <div class="panel-num">03 <span>/ 05</span></div>
+    </header>
+
+    <div class="card">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="q-block">
+          <p class="q-label">Which program impacted you most this semester?</p>
+          <div class="mc-list" data-mc-group="program">
+            <button class="mc-opt" data-value="buffer-night"><span class="mc-dot"></span><span class="mc-icon">☀️</span>Buffer Night — Awaken to Purpose</button>
+            <button class="mc-opt" data-value="best-p"><span class="mc-dot"></span><span class="mc-icon">🎓</span>BEST-P: Apologetics Sessions</button>
+            <button class="mc-opt" data-value="sunday"><span class="mc-dot"></span><span class="mc-icon">🙏</span>Sunday Worship Service</button>
+            <button class="mc-opt" data-value="bible-study"><span class="mc-dot"></span><span class="mc-icon">📖</span>Bible Study Groups</button>
+            <button class="mc-opt" data-value="outreach"><span class="mc-dot"></span><span class="mc-icon">🤝</span>Community Outreach</button>
+          </div>
+        </div>
+        <div class="q-block q-last">
+          <p class="q-label">How often did you attend CU activities?</p>
+          <div class="mc-list" data-mc-group="attendance">
+            <button class="mc-opt" data-value="rarely"><span class="mc-dot"></span>Rarely — 1 or 2 times this semester</button>
+            <button class="mc-opt" data-value="sometimes"><span class="mc-dot"></span>Sometimes — about once a month</button>
+            <button class="mc-opt" data-value="regularly"><span class="mc-dot"></span>Regularly — every two weeks or so</button>
+            <button class="mc-opt" data-value="very-active"><span class="mc-dot"></span>Almost every week — very active</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-btns">
+      <button class="btn-back" onclick="goTo(1)"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg> Back</button>
+      <button class="btn-next" onclick="goTo(3)">Continue to Details <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button>
+    </div>
+  </div>
+
+
+  <!-- ▸ PANEL 3 — Sliders -->
+  <div class="panel" id="panel3">
+    <header class="panel-head">
+      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/></svg></div>
+      <div class="panel-head-text">
+        <div class="panel-title">Detailed Ratings</div>
+        <div class="panel-sub">Slide to score three key areas out of 10</div>
+      </div>
+      <div class="panel-num">04 <span>/ 05</span></div>
+    </header>
+
+    <div class="card">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="slider-block">
+          <div class="slider-top">
+            <span class="slider-name">Leadership effectiveness</span>
+            <div class="slider-badge-wrap" id="sv-leadership"><span class="sl-val">5</span><span class="sl-max">/10</span></div>
+          </div>
+          <input type="range" min="1" max="10" value="5" class="rating-slider" data-key="leadership" id="sl-leadership">
+          <div class="slider-poles"><span>Poor</span><span>Excellent</span></div>
+        </div>
+        <div class="slider-block">
+          <div class="slider-top">
+            <span class="slider-name">Communication &amp; info sharing</span>
+            <div class="slider-badge-wrap" id="sv-comms"><span class="sl-val">5</span><span class="sl-max">/10</span></div>
+          </div>
+          <input type="range" min="1" max="10" value="5" class="rating-slider" data-key="comms" id="sl-comms">
+          <div class="slider-poles"><span>Poor</span><span>Excellent</span></div>
+        </div>
+        <div class="slider-block last">
+          <div class="slider-top">
+            <span class="slider-name">Would you recommend CU to a friend?</span>
+            <div class="slider-badge-wrap" id="sv-nps"><span class="sl-val">5</span><span class="sl-max">/10</span></div>
+          </div>
+          <input type="range" min="0" max="10" value="5" class="rating-slider" data-key="nps" id="sl-nps">
+          <div class="slider-poles"><span>Not likely</span><span>Very likely</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-btns">
+      <button class="btn-back" onclick="goTo(2)"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg> Back</button>
+      <button class="btn-next" onclick="goTo(4)">Continue to Feedback <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></button>
+    </div>
+  </div>
+
+
+  <!-- ▸ PANEL 4 — Feedback -->
+  <div class="panel" id="panel4">
+    <header class="panel-head">
+      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+      <div class="panel-head-text">
+        <div class="panel-title">Feedback &amp; About You</div>
+        <div class="panel-sub">Almost done — your thoughts matter most here</div>
+      </div>
+      <div class="panel-num">05 <span>/ 05</span></div>
+    </header>
+
+    <div class="card">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <div class="q-block">
+          <p class="q-label">What areas need improvement? <span class="q-opt">select all that apply</span></p>
+          <div class="tag-cloud" data-tag-group="improvements">
+            <button class="tag-btn" data-value="timing">⏰ Meeting times</button>
+            <button class="tag-btn" data-value="venue">📍 Venue &amp; space</button>
+            <button class="tag-btn" data-value="teaching">📚 Teaching depth</button>
+            <button class="tag-btn" data-value="music">🎵 Worship music</button>
+            <button class="tag-btn" data-value="comms">📢 Communication</button>
+            <button class="tag-btn" data-value="inclusion">🤝 Inclusion</button>
+            <button class="tag-btn" data-value="prayer">🙏 Prayer support</button>
+            <button class="tag-btn" data-value="discipleship">💛 Discipleship</button>
+            <button class="tag-btn" data-value="events">🗓️ Event variety</button>
+            <button class="tag-btn" data-value="outreach">🌍 Outreach</button>
+          </div>
+        </div>
+        <div class="q-block">
+          <label class="q-label" for="ta-highlight">Highlight from this semester <span class="q-opt">optional</span></label>
+          <textarea id="ta-highlight" data-key="highlight" placeholder="A testimony, insight, or moment that stood out to you…" maxlength="400" rows="3"></textarea>
+          <div class="char-note"><span id="hc">0</span>/400</div>
+        </div>
+        <div class="q-block q-last">
+          <label class="q-label" for="ta-suggestion">One change that would make a big difference <span class="q-opt">optional</span></label>
+          <textarea id="ta-suggestion" data-key="suggestion" placeholder="e.g. More small-group discipleship, better signage at events…" maxlength="400" rows="3"></textarea>
+          <div class="char-note"><span id="sc">0</span>/400</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-stripe"></div>
+      <div class="card-body">
+        <p class="q-label" style="margin-bottom:1.25rem">About you <span class="q-opt">all optional</span></p>
+        <div class="input-pair">
+          <div class="input-grp">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" placeholder="Your first name">
+          </div>
+          <div class="input-grp">
+            <label for="faculty">Faculty / School</label>
+            <input type="text" id="faculty" placeholder="e.g. Science">
+          </div>
+        </div>
+        <div class="q-block" style="margin-bottom:1rem">
+          <p class="sub-label">Year of study</p>
+          <div class="tag-cloud" data-tag-group="year">
+            <button class="tag-btn" data-value="yr1">Year 1</button>
+            <button class="tag-btn" data-value="yr2">Year 2</button>
+            <button class="tag-btn" data-value="yr3">Year 3</button>
+            <button class="tag-btn" data-value="yr4">Year 4+</button>
+            <button class="tag-btn" data-value="postgrad">Postgrad</button>
+          </div>
+        </div>
+        <div class="q-block q-last">
+          <p class="sub-label">How long have you been in CU?</p>
+          <div class="mc-list" data-mc-group="tenure">
+            <button class="mc-opt" data-value="new"><span class="mc-dot"></span>New this semester — just joined</button>
+            <button class="mc-opt" data-value="1yr"><span class="mc-dot"></span>About a year</button>
+            <button class="mc-opt" data-value="2yr+"><span class="mc-dot"></span>Two or more years</button>
+            <button class="mc-opt" data-value="founding"><span class="mc-dot"></span>Long-time member — from the beginning</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-btns">
+      <button class="btn-back" onclick="goTo(3)"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg> Back</button>
+      <button class="btn-submit-final" id="submitBtn" onclick="handleSubmit()">
+        Submit Evaluation <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══ SUCCESS ══ -->
+<div class="success-overlay" id="successScreen" aria-hidden="true">
+  <div class="success-box">
+    <div class="success-glow"></div>
+    <div class="success-mark">
+      <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    </div>
+    <h2>God Bless You!</h2>
+    <p>Your evaluation has been submitted. You've helped shape the future of UoEm CU — your voice is heard, valued, and appreciated.</p>
+    <div class="success-verse">"Let all that you do be done in love."<br><strong>— 1 Corinthians 16:14</strong></div>
+    <button class="btn-done" onclick="closeSuccess()">Done — Back to Start</button>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <strong>UoEm Christian Union</strong> &nbsp;·&nbsp; Semester 2 Evaluation 2024/2025 &nbsp;·&nbsp; All responses are anonymous &amp; confidential
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
