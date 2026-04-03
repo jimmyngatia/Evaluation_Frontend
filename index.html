@@ -6,7 +6,7 @@
 <title>Semester Evaluation — UoEm Christian Union</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,92 +14,107 @@
 <!-- ══ NAVBAR ══ -->
 <nav class="navbar">
   <div class="nav-inner">
-    <div class="nav-crest">
-      <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6L23 9 12 3zm0 2.3L19.47 9 12 12.7 4.53 9 12 5.3zM7 14.12v3.4L12 20l5-2.48v-3.4L12 16.7 7 14.12z"/></svg>
-    </div>
-    <div class="nav-name">University of Embu <span>Christian Union</span></div>
+    <a class="nav-logo" href="#">
+      <div class="nav-crest">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div class="nav-name">University of Embu <span>Christian Union</span></div>
+    </a>
     <div class="nav-spacer"></div>
-    <div class="nav-badge" id="stepPill">Step 1 of 5</div>
+    <div class="nav-tag">Semester 2 &nbsp;·&nbsp; 2024 / 25</div>
   </div>
 </nav>
 
-<!-- ══ HERO ══ -->
+<!-- ══ HERO — split layout ══ -->
 <section class="hero">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-bg-bloom"></div>
-
-  <div class="hero-content">
-    <div class="hero-emblem" aria-hidden="true">
-      <div class="emblem-v"></div>
-      <div class="emblem-h"></div>
-    </div>
-    <div class="hero-eyebrow">
-      <span class="ey-dot"></span> Semester 2 &nbsp;·&nbsp; 2024 / 2025 <span class="ey-dot"></span>
-    </div>
-    <h1>How Are We<br><em>Growing Together?</em></h1>
-    <p class="hero-sub">Your honest reflection shapes the future of our community.<br>Every voice matters — this takes about 3 minutes.</p>
-
-    <div class="hero-pills">
-      <span class="hero-pill">📋 5 sections</span>
-      <span class="hero-pill">⏱ ~3 minutes</span>
-      <span class="hero-pill">🔒 Anonymous</span>
-    </div>
-
-    <div class="hero-prog">
-      <div class="prog-header">
-        <span class="prog-title">Your progress</span>
-        <span class="prog-count" id="progLabel">0 of 5 sections complete</span>
+  <div class="hero-noise"></div>
+  <div class="hero-inner">
+    <!-- Left: copy -->
+    <div class="hero-copy">
+      <div class="hero-eyebrow">
+        <div class="ey-line"></div>
+        Semester Evaluation
       </div>
-      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <h1>Your Voice<br><em>Shapes Our Growth</em></h1>
+      <p class="hero-sub">Help us reflect on this semester together. Your honest input guides how we lead, teach, and serve our community.</p>
+
+      <a class="hero-cta" href="#mainContent" onclick="document.getElementById('mainContent').scrollIntoView({behavior:'smooth'}); return false;">
+        Begin Evaluation
+        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+      </a>
+
+      <div class="hero-pills">
+        <span class="hero-pill">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+          Anonymous
+        </span>
+        <span class="hero-pill">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+          5 sections
+        </span>
+        <span class="hero-pill">
+          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          ~3 minutes
+        </span>
+      </div>
+    </div>
+
+    <!-- Right: image -->
+    <div class="hero-image-panel">
+      <img src="https://moxien21.pythonanywhere.com/static/images/crowd.JPG" alt="UoEm CU Community" onerror="this.style.background='linear-gradient(160deg,#5c2a72,#3f114e)'; this.style.display='block'; this.removeAttribute('src')">
+      <div class="hero-img-overlay"></div>
     </div>
   </div>
-
-  <!-- Step tabs -->
-  <nav class="step-strip" aria-label="Evaluation steps">
-    <button class="step-item active" data-goto="0" aria-label="Step 1: Ratings">
-      <div class="step-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      </div>
-      <span class="step-lbl">Ratings</span>
-    </button>
-    <div class="step-line"></div>
-    <button class="step-item" data-goto="1" aria-label="Step 2: Growth">
-      <div class="step-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.57L5.71 21a18.45 18.45 0 001.56-2.2A9.74 9.74 0 0012 20c6 0 10-5 10-10-.01-.36-.06-.72-.13-1.07a8.93 8.93 0 01-4.87-.93z"/></svg>
-      </div>
-      <span class="step-lbl">Growth</span>
-    </button>
-    <div class="step-line"></div>
-    <button class="step-item" data-goto="2" aria-label="Step 3: Events">
-      <div class="step-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-      </div>
-      <span class="step-lbl">Events</span>
-    </button>
-    <div class="step-line"></div>
-    <button class="step-item" data-goto="3" aria-label="Step 4: Details">
-      <div class="step-icon">
-        <svg viewBox="0 0 24 24"><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/></svg>
-      </div>
-      <span class="step-lbl">Details</span>
-    </button>
-    <div class="step-line"></div>
-    <button class="step-item" data-goto="4" aria-label="Step 5: Feedback">
-      <div class="step-icon">
-        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-      </div>
-      <span class="step-lbl">Feedback</span>
-    </button>
-  </nav>
 </section>
+
+<!-- ══ PROGRESS BAR — sticky ══ -->
+<div class="progress-bar-wrap">
+  <div class="progress-bar-inner">
+    <!-- step dots -->
+    <div class="progress-steps">
+      <button class="ps-item active" data-goto="0">
+        <div class="ps-dot"></div>
+        <span class="ps-label">Ratings</span>
+      </button>
+      <div class="ps-line"></div>
+      <button class="ps-item" data-goto="1">
+        <div class="ps-dot"></div>
+        <span class="ps-label">Growth</span>
+      </button>
+      <div class="ps-line"></div>
+      <button class="ps-item" data-goto="2">
+        <div class="ps-dot"></div>
+        <span class="ps-label">Events</span>
+      </button>
+      <div class="ps-line"></div>
+      <button class="ps-item" data-goto="3">
+        <div class="ps-dot"></div>
+        <span class="ps-label">Details</span>
+      </button>
+      <div class="ps-line"></div>
+      <button class="ps-item" data-goto="4">
+        <div class="ps-dot"></div>
+        <span class="ps-label">Feedback</span>
+      </button>
+    </div>
+
+    <!-- fill track -->
+    <div class="prog-track-wrap">
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <span class="prog-label" id="progLabel">0 / 5</span>
+    </div>
+  </div>
+</div>
 
 <!-- ══ MAIN ══ -->
 <main class="main-wrap" id="mainContent">
 
-  <!-- ▸ PANEL 0 — Overall Ratings -->
+  <!-- ▸ PANEL 0 — Ratings -->
   <div class="panel active" id="panel0">
     <header class="panel-head">
-      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="panel-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
       <div class="panel-head-text">
         <div class="panel-title">Overall Experience</div>
         <div class="panel-sub">Rate your satisfaction across three key areas</div>
@@ -108,9 +123,9 @@
     </header>
 
     <div class="card">
-      <div class="card-stripe"></div>
+      <div class="card-rule"></div>
       <div class="card-body">
-        <p class="card-hint">Tap the stars to rate each area</p>
+        <span class="card-hint">Select a star rating for each area</span>
 
         <div class="star-row" id="srow-meetings">
           <div class="star-meta">
@@ -132,11 +147,11 @@
             <span class="star-badge" id="sh-teaching"></span>
           </div>
           <div class="stars" data-star-group="teaching">
-            <button class="star" data-val="1" aria-label="1 star — Poor"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
-            <button class="star" data-val="2" aria-label="2 stars — Fair"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
-            <button class="star" data-val="3" aria-label="3 stars — Good"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
-            <button class="star" data-val="4" aria-label="4 stars — Great"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
-            <button class="star" data-val="5" aria-label="5 stars — Excellent"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="1" aria-label="1 star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="2" aria-label="2 stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="3" aria-label="3 stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="4" aria-label="4 stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="5" aria-label="5 stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
           </div>
         </div>
 
@@ -146,11 +161,11 @@
             <span class="star-badge" id="sh-fellowship"></span>
           </div>
           <div class="stars" data-star-group="fellowship">
-            <button class="star" data-val="1" aria-label="1 star — Poor"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
-            <button class="star" data-val="2" aria-label="2 stars — Fair"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
-            <button class="star" data-val="3" aria-label="3 stars — Good"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
-            <button class="star" data-val="4" aria-label="4 stars — Great"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
-            <button class="star" data-val="5" aria-label="5 stars — Excellent"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="1" aria-label="1 star"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="2" aria-label="2 stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="3" aria-label="3 stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="4" aria-label="4 stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
+            <button class="star" data-val="5" aria-label="5 stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></button>
           </div>
         </div>
       </div>
@@ -165,7 +180,9 @@
   <!-- ▸ PANEL 1 — Spiritual Growth -->
   <div class="panel" id="panel1">
     <header class="panel-head">
-      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.57L5.71 21a18.45 18.45 0 001.56-2.2A9.74 9.74 0 0012 20c6 0 10-5 10-10-.01-.36-.06-.72-.13-1.07a8.93 8.93 0 01-4.87-.93z"/></svg></div>
+      <div class="panel-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+      </div>
       <div class="panel-head-text">
         <div class="panel-title">Spiritual Growth</div>
         <div class="panel-sub">Two quick questions about your personal journey</div>
@@ -174,25 +191,52 @@
     </header>
 
     <div class="card">
-      <div class="card-stripe"></div>
+      <div class="card-rule"></div>
       <div class="card-body">
         <div class="q-block">
           <p class="q-label">How would you describe your spiritual growth this semester?</p>
           <div class="mood-grid" data-mood-group="growth">
-            <button class="mood-btn" data-value="declining"><span class="m-emoji">😔</span><span class="m-name">Declining</span></button>
-            <button class="mood-btn" data-value="stagnant"><span class="m-emoji">😐</span><span class="m-name">Stagnant</span></button>
-            <button class="mood-btn" data-value="steady"><span class="m-emoji">🙂</span><span class="m-name">Steady</span></button>
-            <button class="mood-btn" data-value="growing"><span class="m-emoji">😊</span><span class="m-name">Growing</span></button>
-            <button class="mood-btn" data-value="thriving"><span class="m-emoji">🙌</span><span class="m-name">Thriving</span></button>
+            <button class="mood-btn" data-value="declining">
+              <div class="m-icon"><svg viewBox="0 0 24 24"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg></div>
+              <span class="m-name">Declining</span>
+            </button>
+            <button class="mood-btn" data-value="stagnant">
+              <div class="m-icon"><svg viewBox="0 0 24 24"><path d="M22 12l-4-4v3H3v2h15v3z"/></svg></div>
+              <span class="m-name">Stagnant</span>
+            </button>
+            <button class="mood-btn" data-value="steady">
+              <div class="m-icon"><svg viewBox="0 0 24 24"><path d="M3.5 18.5l6-6 4 4L22 6.92 20.59 5.5l-7.09 8.07-4-4L2 17z"/></svg></div>
+              <span class="m-name">Steady</span>
+            </button>
+            <button class="mood-btn" data-value="growing">
+              <div class="m-icon"><svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div>
+              <span class="m-name">Growing</span>
+            </button>
+            <button class="mood-btn" data-value="thriving">
+              <div class="m-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg></div>
+              <span class="m-name">Thriving</span>
+            </button>
           </div>
         </div>
         <div class="q-block q-last">
           <p class="q-label">Do you feel included and welcomed in our community?</p>
           <div class="mood-grid" data-mood-group="inclusion">
-            <button class="mood-btn" data-value="not-at-all"><span class="m-emoji">😞</span><span class="m-name">Not at all</span></button>
-            <button class="mood-btn" data-value="sometimes"><span class="m-emoji">🤔</span><span class="m-name">Sometimes</span></button>
-            <button class="mood-btn" data-value="mostly"><span class="m-emoji">😊</span><span class="m-name">Mostly</span></button>
-            <button class="mood-btn" data-value="always"><span class="m-emoji">💛</span><span class="m-name">Always</span></button>
+            <button class="mood-btn" data-value="not-at-all">
+              <div class="m-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg></div>
+              <span class="m-name">Not at all</span>
+            </button>
+            <button class="mood-btn" data-value="sometimes">
+              <div class="m-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+              <span class="m-name">Sometimes</span>
+            </button>
+            <button class="mood-btn" data-value="mostly">
+              <div class="m-icon"><svg viewBox="0 0 24 24"><path d="M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.67-3.3-1-4.5-1C5.33 13 1 14.08 1 16.25V18h22v-1.75c0-2.17-4.33-3.25-6.5-3.25zm-4 3.5h-10v-.75c0-.29.38-.67 1.14-1.03C4.5 14.36 5.81 14 7.5 14c1.69 0 3 .36 3.86.72.76.36 1.14.74 1.14 1.03v.75zm9 0H14v-.75c0-.29.38-.67 1.14-1.03.86-.36 2.17-.72 3.86-.72 1.69 0 3 .36 3.86.72.76.36 1.14.74 1.14 1.03v.75zM7.5 12c1.93 0 3.5-1.57 3.5-3.5S9.43 5 7.5 5 4 6.57 4 8.5 5.57 12 7.5 12zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 5.5c1.93 0 3.5-1.57 3.5-3.5S18.43 5 16.5 5 13 6.57 13 8.5s1.57 3.5 3.5 3.5zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg></div>
+              <span class="m-name">Mostly</span>
+            </button>
+            <button class="mood-btn" data-value="always">
+              <div class="m-icon"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+              <span class="m-name">Always</span>
+            </button>
           </div>
         </div>
       </div>
@@ -208,7 +252,9 @@
   <!-- ▸ PANEL 2 — Events -->
   <div class="panel" id="panel2">
     <header class="panel-head">
-      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
+      <div class="panel-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      </div>
       <div class="panel-head-text">
         <div class="panel-title">Events &amp; Programs</div>
         <div class="panel-sub">Tell us what impacted you most this semester</div>
@@ -217,25 +263,45 @@
     </header>
 
     <div class="card">
-      <div class="card-stripe"></div>
+      <div class="card-rule"></div>
       <div class="card-body">
         <div class="q-block">
           <p class="q-label">Which program impacted you most this semester?</p>
           <div class="mc-list" data-mc-group="program">
-            <button class="mc-opt" data-value="buffer-night"><span class="mc-dot"></span><span class="mc-icon">☀️</span>Buffer Night — Awaken to Purpose</button>
-            <button class="mc-opt" data-value="best-p"><span class="mc-dot"></span><span class="mc-icon">🎓</span>BEST-P: Apologetics Sessions</button>
-            <button class="mc-opt" data-value="sunday"><span class="mc-dot"></span><span class="mc-icon">🙏</span>Sunday Worship Service</button>
-            <button class="mc-opt" data-value="bible-study"><span class="mc-dot"></span><span class="mc-icon">📖</span>Bible Study Groups</button>
-            <button class="mc-opt" data-value="outreach"><span class="mc-dot"></span><span class="mc-icon">🤝</span>Community Outreach</button>
+            <button class="mc-opt" data-value="buffer-night">
+              <div class="mc-radio"></div>
+              <div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div>
+              Buffer Night — Awaken to Purpose
+            </button>
+            <button class="mc-opt" data-value="best-p">
+              <div class="mc-radio"></div>
+              <div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+              BEST-P: Apologetics Sessions
+            </button>
+            <button class="mc-opt" data-value="sunday">
+              <div class="mc-radio"></div>
+              <div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg></div>
+              Sunday Worship Service
+            </button>
+            <button class="mc-opt" data-value="bible-study">
+              <div class="mc-radio"></div>
+              <div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></div>
+              Bible Study Groups
+            </button>
+            <button class="mc-opt" data-value="outreach">
+              <div class="mc-radio"></div>
+              <div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.67-3.3-1-4.5-1C5.33 13 1 14.08 1 16.25V18h22v-1.75c0-2.17-4.33-3.25-6.5-3.25zm-4 3.5h-10v-.75c0-.29.38-.67 1.14-1.03C4.5 14.36 5.81 14 7.5 14c1.69 0 3 .36 3.86.72.76.36 1.14.74 1.14 1.03v.75zm9 0H14v-.75c0-.29.38-.67 1.14-1.03.86-.36 2.17-.72 3.86-.72 1.69 0 3 .36 3.86.72.76.36 1.14.74 1.14 1.03v.75zM7.5 12c1.93 0 3.5-1.57 3.5-3.5S9.43 5 7.5 5 4 6.57 4 8.5 5.57 12 7.5 12zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 5.5c1.93 0 3.5-1.57 3.5-3.5S18.43 5 16.5 5 13 6.57 13 8.5s1.57 3.5 3.5 3.5zm0-5.5c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z"/></svg></div>
+              Community Outreach
+            </button>
           </div>
         </div>
         <div class="q-block q-last">
           <p class="q-label">How often did you attend CU activities?</p>
           <div class="mc-list" data-mc-group="attendance">
-            <button class="mc-opt" data-value="rarely"><span class="mc-dot"></span>Rarely — 1 or 2 times this semester</button>
-            <button class="mc-opt" data-value="sometimes"><span class="mc-dot"></span>Sometimes — about once a month</button>
-            <button class="mc-opt" data-value="regularly"><span class="mc-dot"></span>Regularly — every two weeks or so</button>
-            <button class="mc-opt" data-value="very-active"><span class="mc-dot"></span>Almost every week — very active</button>
+            <button class="mc-opt" data-value="rarely"><div class="mc-radio"></div><div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>Rarely — 1 or 2 times this semester</button>
+            <button class="mc-opt" data-value="sometimes"><div class="mc-radio"></div><div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>Sometimes — about once a month</button>
+            <button class="mc-opt" data-value="regularly"><div class="mc-radio"></div><div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>Regularly — every two weeks or so</button>
+            <button class="mc-opt" data-value="very-active"><div class="mc-radio"></div><div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>Almost every week — very active</button>
           </div>
         </div>
       </div>
@@ -251,7 +317,9 @@
   <!-- ▸ PANEL 3 — Sliders -->
   <div class="panel" id="panel3">
     <header class="panel-head">
-      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/></svg></div>
+      <div class="panel-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"/></svg>
+      </div>
       <div class="panel-head-text">
         <div class="panel-title">Detailed Ratings</div>
         <div class="panel-sub">Slide to score three key areas out of 10</div>
@@ -260,7 +328,7 @@
     </header>
 
     <div class="card">
-      <div class="card-stripe"></div>
+      <div class="card-rule"></div>
       <div class="card-body">
         <div class="slider-block">
           <div class="slider-top">
@@ -299,7 +367,9 @@
   <!-- ▸ PANEL 4 — Feedback -->
   <div class="panel" id="panel4">
     <header class="panel-head">
-      <div class="panel-icon-wrap"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+      <div class="panel-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      </div>
       <div class="panel-head-text">
         <div class="panel-title">Feedback &amp; About You</div>
         <div class="panel-sub">Almost done — your thoughts matter most here</div>
@@ -308,21 +378,21 @@
     </header>
 
     <div class="card">
-      <div class="card-stripe"></div>
+      <div class="card-rule"></div>
       <div class="card-body">
         <div class="q-block">
           <p class="q-label">What areas need improvement? <span class="q-opt">select all that apply</span></p>
           <div class="tag-cloud" data-tag-group="improvements">
-            <button class="tag-btn" data-value="timing">⏰ Meeting times</button>
-            <button class="tag-btn" data-value="venue">📍 Venue &amp; space</button>
-            <button class="tag-btn" data-value="teaching">📚 Teaching depth</button>
-            <button class="tag-btn" data-value="music">🎵 Worship music</button>
-            <button class="tag-btn" data-value="comms">📢 Communication</button>
-            <button class="tag-btn" data-value="inclusion">🤝 Inclusion</button>
-            <button class="tag-btn" data-value="prayer">🙏 Prayer support</button>
-            <button class="tag-btn" data-value="discipleship">💛 Discipleship</button>
-            <button class="tag-btn" data-value="events">🗓️ Event variety</button>
-            <button class="tag-btn" data-value="outreach">🌍 Outreach</button>
+            <button class="tag-btn" data-value="timing"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg> Meeting times</button>
+            <button class="tag-btn" data-value="venue"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Venue &amp; space</button>
+            <button class="tag-btn" data-value="teaching"><svg viewBox="0 0 24 24"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1z"/></svg> Teaching depth</button>
+            <button class="tag-btn" data-value="music"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg> Worship music</button>
+            <button class="tag-btn" data-value="comms"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg> Communication</button>
+            <button class="tag-btn" data-value="inclusion"><svg viewBox="0 0 24 24"><path d="M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.67-3.3-1-4.5-1C5.33 13 1 14.08 1 16.25V18h22v-1.75c0-2.17-4.33-3.25-6.5-3.25z"/></svg> Inclusion</button>
+            <button class="tag-btn" data-value="prayer"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg> Prayer support</button>
+            <button class="tag-btn" data-value="discipleship"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> Discipleship</button>
+            <button class="tag-btn" data-value="events"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2z"/></svg> Event variety</button>
+            <button class="tag-btn" data-value="outreach"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg> Outreach</button>
           </div>
         </div>
         <div class="q-block">
@@ -339,7 +409,7 @@
     </div>
 
     <div class="card">
-      <div class="card-stripe"></div>
+      <div class="card-rule"></div>
       <div class="card-body">
         <p class="q-label" style="margin-bottom:1.25rem">About you <span class="q-opt">all optional</span></p>
         <div class="input-pair">
@@ -365,10 +435,10 @@
         <div class="q-block q-last">
           <p class="sub-label">How long have you been in CU?</p>
           <div class="mc-list" data-mc-group="tenure">
-            <button class="mc-opt" data-value="new"><span class="mc-dot"></span>New this semester — just joined</button>
-            <button class="mc-opt" data-value="1yr"><span class="mc-dot"></span>About a year</button>
-            <button class="mc-opt" data-value="2yr+"><span class="mc-dot"></span>Two or more years</button>
-            <button class="mc-opt" data-value="founding"><span class="mc-dot"></span>Long-time member — from the beginning</button>
+            <button class="mc-opt" data-value="new"><div class="mc-radio"></div><div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>New this semester — just joined</button>
+            <button class="mc-opt" data-value="1yr"><div class="mc-radio"></div><div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>About a year</button>
+            <button class="mc-opt" data-value="2yr+"><div class="mc-radio"></div><div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.67-3.3-1-4.5-1C5.33 13 1 14.08 1 16.25V18h22v-1.75c0-2.17-4.33-3.25-6.5-3.25z"/></svg></div>Two or more years</button>
+            <button class="mc-opt" data-value="founding"><div class="mc-radio"></div><div class="mc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>Long-time member — from the beginning</button>
           </div>
         </div>
       </div>
@@ -387,7 +457,6 @@
 <!-- ══ SUCCESS ══ -->
 <div class="success-overlay" id="successScreen" aria-hidden="true">
   <div class="success-box">
-    <div class="success-glow"></div>
     <div class="success-mark">
       <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
     </div>
