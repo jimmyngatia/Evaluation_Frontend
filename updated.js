@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════
-   UoEm CU Semester Evaluation — updated.js (v3)
+   UoEm CU Semester Evaluation — updated.js (v4)
    ══════════════════════════════════════════════════════ */
    'use strict';
 
@@ -18,7 +18,7 @@
        additionalInfo: ''
      },
      spiritualGrowth: {
-       growth: 5,
+       growth: '',
        programs: [],
        attendance: '',
        additionalInfo: ''
@@ -54,7 +54,6 @@
    let currentSection = 0;
    const totalSections = 7;
    
-   // Rating word labels for star badges
    const STAR_LABELS = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent'];
    
    // ═══════════════════════════════════════════════════════════════
@@ -64,18 +63,19 @@
      initWeeklyServices();
      initServices();
      initStarRatings();
+     initGrowthStages();
      initPrograms();
      initAttendance();
      initMinistries();
      initActivity();
      initLeadershipSliders();
-     initGrowthSlider();
      initImprovementTags();
      initRecommendation();
      initDropdowns();
      initYearPills();
      initTenureList();
      initTopicSuggestions();
+     initLeadershipFeedback();
      initProgress();
      updateProgressBar();
      updateButtons();
@@ -108,7 +108,7 @@
          <label class="checkbox-label">${item}</label>
        `;
        div.addEventListener('click', (e) => {
-         if (e.target.tagName === 'INPUT') return; // handled below
+         if (e.target.tagName === 'INPUT') return;
          toggleCheckboxItem(div);
        });
        const chk = div.querySelector('input');
@@ -126,7 +126,7 @@
    }
    
    // ═══════════════════════════════════════════════════════════════
-   // STAR RATINGS — new large filled-star system
+   // STAR RATINGS
    // ═══════════════════════════════════════════════════════════════
    const STAR_KEYS = [
      { key: 'weeklyTime',      section: 'weeklyServices', field: 'timeManagement' },
@@ -137,21 +137,17 @@
      { key: 'serviceSpeakers', section: 'services',       field: 'speakers'       },
    ];
    
-   // Runtime store for current star values
    const starValues = {};
    
    function initStarRatings() {
-     STAR_KEYS.forEach(({ key }) => {
-       starValues[key] = 0;
-     });
+     STAR_KEYS.forEach(({ key }) => { starValues[key] = 0; });
    
      document.querySelectorAll('.stars[data-key]').forEach(container => {
-       const key = container.dataset.key;
+       const key        = container.dataset.key;
        const sectionKey = container.dataset.section;
        const fieldKey   = container.dataset.field;
        const badge      = document.getElementById('badge-' + key);
    
-       // Build 5 star buttons
        for (let i = 1; i <= 5; i++) {
          const btn = document.createElement('button');
          btn.className = 'star';
@@ -173,7 +169,6 @@
          });
        }
    
-       // Hover preview
        stars.forEach(s => {
          s.addEventListener('mouseenter', () => {
            const hv = +s.dataset.val;
@@ -186,24 +181,15 @@
            });
          });
          s.addEventListener('mouseleave', () => paintStars(starValues[key] || 0));
-   
-         // Click to rate
          s.addEventListener('click', () => {
            const val = +s.dataset.val;
            starValues[key] = val;
-   
-           // Update data store
            if (evaluationData[sectionKey] && evaluationData[sectionKey].ratings) {
              evaluationData[sectionKey].ratings[fieldKey] = val;
            }
-   
            paintStars(val);
-   
-           // Pop animation
            s.classList.add('pop');
            setTimeout(() => s.classList.remove('pop'), 180);
-   
-           // Badge
            if (badge) {
              badge.textContent = STAR_LABELS[val];
              badge.classList.add('visible');
@@ -211,8 +197,76 @@
          });
        });
    
-       // Init at 0
        paintStars(0);
+     });
+   }
+   
+   // ═══════════════════════════════════════════════════════════════
+   // SPIRITUAL GROWTH STAGES — replaces slider (Section 2)
+   // ═══════════════════════════════════════════════════════════════
+   function initGrowthStages() {
+     const stages = [
+       {
+         value: 'stagnant',
+         label: 'Stagnant',
+         desc: 'Little to no growth felt',
+         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+           <!-- Flat line / plateau -->
+           <line x1="3" y1="12" x2="21" y2="12"/>
+           <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none" opacity="0.3"/>
+           <line x1="12" y1="8" x2="12" y2="10"/>
+           <line x1="12" y1="14" x2="12" y2="16"/>
+         </svg>`
+       },
+       {
+         value: 'steady',
+         label: 'Steady',
+         desc: 'Slow, consistent growth',
+         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+           <!-- Gentle upward slope -->
+           <polyline points="3 16 9 12 15 10 21 8"/>
+           <polyline points="16 8 21 8 21 13"/>
+         </svg>`
+       },
+       {
+         value: 'growing',
+         label: 'Growing',
+         desc: 'Noticeably moving forward',
+         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+           <!-- Leaf / plant growing -->
+           <path d="M12 22V12"/>
+           <path d="M12 12C12 12 7 10 7 5a5 5 0 0110 0c0 5-5 7-5 7z"/>
+         </svg>`
+       },
+       {
+         value: 'thriving',
+         label: 'Thriving',
+         desc: 'Significant breakthrough',
+         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+           <!-- Flame / fire — thriving -->
+           <path d="M12 22c4.5 0 8-3.1 8-7 0-3.8-3-5.5-4-8-1 2.5-2 3-3 4-1-2-3-4-3-6-2 2-2 5-2 6 0 1.2.3 2.3.8 3.3"/>
+           <path d="M12 22c-2.5 0-4-1.5-4-3.5 0-1.8 1.5-2.5 2-4 .5 1.2 1 1.5 1.5 2 .5-1 1.5-2 1.5-3 1 1 1 2.5 1 3.5 0 2.8-1 5-2 5z"/>
+         </svg>`
+       }
+     ];
+   
+     const container = document.getElementById('growthStageGrid');
+     if (!container) return;
+   
+     stages.forEach(stage => {
+       const card = document.createElement('div');
+       card.className = 'growth-stage-card';
+       card.innerHTML = `
+         <div class="gs-icon-wrap">${stage.icon}</div>
+         <span class="gs-label">${stage.label}</span>
+         <span class="gs-desc">${stage.desc}</span>
+       `;
+       card.addEventListener('click', () => {
+         container.querySelectorAll('.growth-stage-card').forEach(c => c.classList.remove('selected'));
+         card.classList.add('selected');
+         evaluationData.spiritualGrowth.growth = stage.value;
+       });
+       container.appendChild(card);
      });
    }
    
@@ -275,7 +329,7 @@
    }
    
    // ═══════════════════════════════════════════════════════════════
-   // MINISTRIES — compact checkbox grid like screenshot 5
+   // MINISTRIES (Section 3)
    // ═══════════════════════════════════════════════════════════════
    function initMinistries() {
      const ministries = [
@@ -360,30 +414,14 @@
    }
    
    // ═══════════════════════════════════════════════════════════════
-   // GROWTH SLIDER (Section 2)
-   // ═══════════════════════════════════════════════════════════════
-   function initGrowthSlider() {
-     const slider = document.getElementById('growthSlider');
-     const valueEl = document.getElementById('growthValue');
-     if (!slider) return;
-     slider.addEventListener('input', () => {
-       const v = +slider.value;
-       if (valueEl) valueEl.textContent = v;
-       evaluationData.spiritualGrowth.growth = v;
-       updateSliderBg(slider);
-     });
-     updateSliderBg(slider);
-   }
-   
-   // ═══════════════════════════════════════════════════════════════
    // LEADERSHIP SLIDERS (Section 4)
    // ═══════════════════════════════════════════════════════════════
    function initLeadershipSliders() {
      const configs = [
-       { id: 'visionSlider',         valId: 'visionValue',         key: 'vision'         },
-       { id: 'communicationSlider',  valId: 'communicationValue',  key: 'communication'  },
-       { id: 'approachabilitySlider',valId: 'approachabilityValue',key: 'approachability'},
-       { id: 'decisionSlider',       valId: 'decisionValue',       key: 'decisionMaking' }
+       { id: 'visionSlider',          valId: 'visionValue',         key: 'vision'         },
+       { id: 'communicationSlider',   valId: 'communicationValue',  key: 'communication'  },
+       { id: 'approachabilitySlider', valId: 'approachabilityValue',key: 'approachability'},
+       { id: 'decisionSlider',        valId: 'decisionValue',       key: 'decisionMaking' }
      ];
      configs.forEach(({ id, valId, key }) => {
        const sl = document.getElementById(id);
@@ -396,6 +434,17 @@
          updateSliderBg(sl);
        });
        updateSliderBg(sl);
+     });
+   }
+   
+   // ═══════════════════════════════════════════════════════════════
+   // LEADERSHIP ADDITIONAL FEEDBACK — always visible (Section 4)
+   // ═══════════════════════════════════════════════════════════════
+   function initLeadershipFeedback() {
+     const ta = document.getElementById('leadershipAdditional');
+     if (!ta) return;
+     ta.addEventListener('input', () => {
+       evaluationData.leadership.additionalInfo = ta.value;
      });
    }
    
@@ -419,7 +468,6 @@
      tags.forEach(tag => {
        const btn = document.createElement('button');
        btn.className = 'tag-btn';
-       // Small tag icon
        btn.innerHTML = `
          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
            <path d="M1 1h5l5 5-5 5-5-5V1z"/>
@@ -456,7 +504,6 @@
        });
      });
    
-     // Allow clicking the label row itself
      document.querySelectorAll('.mc-opt').forEach(opt => {
        opt.addEventListener('click', () => {
          const radio = opt.querySelector('input[type="radio"]');
@@ -469,7 +516,7 @@
    }
    
    // ═══════════════════════════════════════════════════════════════
-   // YEAR PILLS (Section 6 — About You)
+   // YEAR PILLS (Section 6)
    // ═══════════════════════════════════════════════════════════════
    function initYearPills() {
      const container = document.getElementById('yearPills');
@@ -484,7 +531,7 @@
    }
    
    // ═══════════════════════════════════════════════════════════════
-   // TENURE LIST (Section 6 — About You)
+   // TENURE LIST (Section 6)
    // ═══════════════════════════════════════════════════════════════
    function initTenureList() {
      document.querySelectorAll('.tenure-item').forEach(btn => {
@@ -497,7 +544,7 @@
    }
    
    // ═══════════════════════════════════════════════════════════════
-   // DROPDOWNS (optional additional info)
+   // DROPDOWNS (optional additional info — sections 1,2,3,4,5)
    // ═══════════════════════════════════════════════════════════════
    function initDropdowns() {
      document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
@@ -516,7 +563,6 @@
            if (targetId === 'serviceAdditional')  evaluationData.services.additionalInfo = value;
            if (targetId === 'growthAdditional')   evaluationData.spiritualGrowth.additionalInfo = value;
            if (targetId === 'ministryAdditional') evaluationData.ministries.additionalInfo = value;
-           if (targetId === 'leadershipAdditional') evaluationData.leadership.additionalInfo = value;
          }, { once: false });
        });
      });
@@ -575,7 +621,8 @@
            updatePanels();
            updateProgressBar();
            updateButtons();
-           window.scrollTo({ top: 0, behavior: 'smooth' });
+           // Scroll to top of evaluation section when using nav dots
+           document.getElementById('mainContent').scrollIntoView({ behavior: 'smooth' });
          }
        });
        progressSteps.appendChild(btn);
@@ -604,7 +651,7 @@
    }
    
    // ═══════════════════════════════════════════════════════════════
-   // NAVIGATION
+   // NAVIGATION — no scroll-to-top when clicking Next/Previous
    // ═══════════════════════════════════════════════════════════════
    function changePanel(direction) {
      const newSection = currentSection + direction;
@@ -619,7 +666,8 @@
      currentSection = newSection;
      updateProgressBar();
      updateButtons();
-     window.scrollTo({ top: 0, behavior: 'smooth' });
+   
+     // No window.scrollTo here — stay in place so user stays in the evaluation area
    }
    
    function updateButtons() {
@@ -648,22 +696,22 @@
    // STORE DATA
    // ═══════════════════════════════════════════════════════════════
    function storeCurrentSectionData() {
-     // Section 0 — Weekly Services sessions
      if (currentSection === 0) {
        evaluationData.weeklyServices.sessions = getCheckedValues('weeklyServicesGrid');
      }
-     // Section 1 — Services sessions
      if (currentSection === 1) {
        evaluationData.services.sessions = getCheckedValues('servicesGrid');
      }
-     // Section 5 — General Overview text
+     if (currentSection === 4) {
+       const ta = document.getElementById('leadershipAdditional');
+       if (ta) evaluationData.leadership.additionalInfo = ta.value;
+     }
      if (currentSection === 5) {
        const be = document.getElementById('bestExperience');
        const it = document.getElementById('improvementText');
        if (be) evaluationData.generalOverview.bestExperience = be.value;
        if (it) evaluationData.generalOverview.improvementText = it.value;
      }
-     // Section 6 — Recommendations + About You
      if (currentSection === 6) {
        const fn = document.getElementById('firstName');
        const fs = document.getElementById('facultySchool');
@@ -671,14 +719,13 @@
        const se = document.getElementById('speakerEmail');
        const sp = document.getElementById('speakerPhone');
        const sb = document.getElementById('speakerBio');
-       if (fn) evaluationData.recommendations.firstName    = fn.value;
-       if (fs) evaluationData.recommendations.facultySchool= fs.value;
+       if (fn) evaluationData.recommendations.firstName     = fn.value;
+       if (fs) evaluationData.recommendations.facultySchool = fs.value;
        if (sn) evaluationData.recommendations.speaker.name  = sn.value;
        if (se) evaluationData.recommendations.speaker.email = se.value;
        if (sp) evaluationData.recommendations.speaker.phone = sp.value;
        if (sb) evaluationData.recommendations.speaker.bio   = sb.value;
    
-       // Topics
        const topics = [];
        document.querySelectorAll('.suggestion-item').forEach(item => {
          const cat   = item.querySelector('.topic-category')?.value;
@@ -704,17 +751,9 @@
    
      console.log('Evaluation submitted:', evaluationData);
    
-     // Show thank you overlay
      const overlay = document.getElementById('successOverlay');
      if (overlay) {
        overlay.style.display = 'grid';
        overlay.setAttribute('aria-modal', 'true');
      }
-   
-     // Optionally send to backend:
-     // fetch('/api/evaluations', {
-     //   method: 'POST',
-     //   headers: { 'Content-Type': 'application/json' },
-     //   body: JSON.stringify(evaluationData)
-     // });
    }
